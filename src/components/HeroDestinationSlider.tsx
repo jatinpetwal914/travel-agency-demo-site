@@ -190,10 +190,10 @@ export default function HeroDestinationSlider({ treks }: HeroDestinationSliderPr
               </div>
 
               {/* Call To Action Buttons */}
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                 <Link
                   href={`/treks/${activeTrek.slug}`}
-                  className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm tracking-wide transition-all duration-300 shadow-xl hover:shadow-blue-600/30 hover:scale-105 active:scale-95 font-heading"
+                  className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs sm:text-sm tracking-wide transition-all duration-300 shadow-xl hover:shadow-blue-600/30 hover:scale-105 active:scale-95 font-heading"
                 >
                   <span>Explore Trek</span>
                   <ArrowRight className="w-4 h-4" />
@@ -201,7 +201,7 @@ export default function HeroDestinationSlider({ treks }: HeroDestinationSliderPr
 
                 <button
                   onClick={() => setInquiryModalOpen(true)}
-                  className="inline-flex items-center px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium text-sm transition-all font-heading"
+                  className="inline-flex items-center px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium text-xs sm:text-sm transition-all font-heading active:scale-95"
                 >
                   Inquire Now
                 </button>
