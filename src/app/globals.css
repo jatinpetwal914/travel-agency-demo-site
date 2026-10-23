@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    color: #ffffff;
+    background-color: #0b1512;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  ::selection {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1512;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c362d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Glassmorphism navigation */
+.glass-nav {
+  background: rgba(11, 21, 18, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(17, 34, 28, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-title-shadow {
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes slideProgress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-slideProgress {
+  animation: slideProgress linear forwards;
+}
+
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-heroFadeUp {
+  animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ================= SCROLL REVEAL ANIMATIONS (SCROLL UP & DOWN RE-TRIGGERABLE) ================= */
+[data-reveal],
+.reveal-on-scroll {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition-property: opacity, transform;
+  transition-duration: 750ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Slide Up (Default) */
+[data-reveal="up"],
+[data-reveal=""],
+[data-reveal]:not([data-reveal="scale"]):not([data-reveal="left"]):not([data-reveal="right"]):not([data-reveal="fade"]):not([data-reveal="zoom-out"]),
+.reveal-up {
+  transform: translateY(32px);
+}
+
+/* Subtle Zoom-In / Scale */
+[data-reveal="scale"],
+.reveal-scale {
+  transform: scale(0.93) translateY(16px);
+}
+
+/* Zoom Out */
+[data-reveal="zoom-out"],
+.reveal-zoom-out {
+  transform: scale(1.06);
+}
+
+/* Slide In From Left */
+[data-reveal="left"],
+.reveal-left {
+  transform: translateX(-40px);
+}
+
+/* Slide In From Right */
+[data-reveal="right"],
+.reveal-right {
+  transform: translateX(40px);
+}
+
+/* Gentle Soft Fade */
+[data-reveal="fade"],
+.reveal-fade {
+  transform: translateY(12px);
+}
+
+/* ACTIVE STATE (When in Viewport - Triggered on both Scroll Up and Scroll Down) */
+[data-reveal].revealed,
+.reveal-on-scroll.revealed {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+/* Stagger Delays */
+[data-reveal-delay="75"]  { transition-delay: 75ms; }
+[data-reveal-delay="100"] { transition-delay: 100ms; }
+[data-reveal-delay="150"] { transition-delay: 150ms; }
+[data-reveal-delay="200"] { transition-delay: 200ms; }
+[data-reveal-delay="250"] { transition-delay: 250ms; }
+[data-reveal-delay="300"] { transition-delay: 300ms; }
+[data-reveal-delay="350"] { transition-delay: 350ms; }
+[data-reveal-delay="400"] { transition-delay: 400ms; }
+[data-reveal-delay="450"] { transition-delay: 450ms; }
+[data-reveal-delay="500"] { transition-delay: 500ms; }
+[data-reveal-delay="600"] { transition-delay: 600ms; }
+
+/* Accessible fallback for users with reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
